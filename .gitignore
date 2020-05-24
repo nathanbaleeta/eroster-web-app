@@ -30,6 +30,10 @@ build/
 ### VS Code ###
 .vscode/
 
+### Package Files ###
+*.jar
+*.war
+*.ear
+
 ### Maven ###
-mvnw
-mvnw.cmd
+.mvn/*
