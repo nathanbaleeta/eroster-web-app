@@ -4,10 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.unicef.eroster.exception.RecordNotFoundException;
 import org.unicef.eroster.model.Reference;
 import org.unicef.eroster.service.ReferenceService;
@@ -29,11 +26,17 @@ public class ReferenceController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<Reference> getEmployeeById(@PathVariable("id") Long id)
+    public ResponseEntity<Reference> getReferenceById(@PathVariable("id") Long id)
             throws RecordNotFoundException {
         Reference entity = service.getReferenceById(id);
 
         return new ResponseEntity<Reference>(entity, new HttpHeaders(), HttpStatus.OK);
+    }
+
+    @DeleteMapping("/{id}")
+    public HttpStatus deleteReferenceById(@PathVariable("id") Long id) throws RecordNotFoundException {
+        service.deleteReferenceById(id);
+        return HttpStatus.FORBIDDEN;
     }
 
 }

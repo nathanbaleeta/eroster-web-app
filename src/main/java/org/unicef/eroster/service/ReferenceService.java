@@ -36,4 +36,18 @@ public class ReferenceService {
             throw new RecordNotFoundException("No reference record exists for given id");
         }
     }
+
+    public void deleteReferenceById(Long id) throws RecordNotFoundException
+    {
+        Optional<Reference> reference = repository.findById(id);
+
+        if(reference.isPresent())
+        {
+            repository.deleteById(id);
+        } else {
+            throw new RecordNotFoundException("No reference record exists for given id");
+        }
+    }
+
+
 }
