@@ -9,11 +9,10 @@ import org.unicef.eroster.exception.RecordNotFoundException;
 import org.unicef.eroster.model.Reference;
 import org.unicef.eroster.service.ReferenceService;
 
-import java.sql.Ref;
 import java.util.List;
 
 @RestController
-@RequestMapping("references")
+@RequestMapping("api/references")
 public class ReferenceController {
     @Autowired
     ReferenceService service;
@@ -31,6 +30,13 @@ public class ReferenceController {
         Reference entity = service.getReferenceById(id);
 
         return new ResponseEntity<Reference>(entity, new HttpHeaders(), HttpStatus.OK);
+    }
+
+    @PostMapping
+    public ResponseEntity<Reference> createOrUpdateReference(Reference reference)
+            throws RecordNotFoundException {
+        Reference updated = service.createOrUpdateReference(reference);
+        return new ResponseEntity<Reference>(updated, new HttpHeaders(), HttpStatus.OK);
     }
 
     @DeleteMapping("/{id}")

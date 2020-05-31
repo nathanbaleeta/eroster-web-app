@@ -1,10 +1,6 @@
 package org.unicef.eroster.model;
 
-import javax.persistence.Entity;
-import javax.persistence.Table;
-import javax.persistence.Column;
-import javax.persistence.Id;
-import javax.persistence.GeneratedValue;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
@@ -12,7 +8,8 @@ import java.io.Serializable;
 public class Reference implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id_reference", unique = true, nullable = false)
     private long id;
 
     @Column(name="full_name", nullable = false)

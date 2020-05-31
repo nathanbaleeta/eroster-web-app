@@ -37,6 +37,27 @@ public class ReferenceService {
         }
     }
 
+    public Reference createOrUpdateReference(Reference entity) throws RecordNotFoundException
+    {
+        Optional<Reference> reference = repository.findById(entity.getId());
+
+        if(reference.isPresent())
+        {
+            Reference newEntity = reference.get();
+            newEntity.setFullName(entity.getFullName());
+            newEntity.setFullAddress(entity.getFullAddress());
+            newEntity.setEmail(entity.getEmail());
+            newEntity.setBusinessOccupation(entity.getBusinessOccupation());
+
+            newEntity = repository.saveAndFlush(newEntity);
+
+            return newEntity;
+        } else {
+            entity = repository.saveAndFlush(entity);
+            return entity;
+        }
+    }
+
     public void deleteReferenceById(Long id) throws RecordNotFoundException
     {
         Optional<Reference> reference = repository.findById(id);
