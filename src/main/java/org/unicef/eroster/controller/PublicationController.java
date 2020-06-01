@@ -34,6 +34,13 @@ public class PublicationController {
         return new ResponseEntity<Publication>(entity, new HttpHeaders(), HttpStatus.OK);
     }
 
+    @PostMapping
+    public ResponseEntity<Publication> createOrUpdatePublication(Publication publication)
+            throws RecordNotFoundException {
+        Publication updated = service.createOrUpdatePublication(publication);
+        return new ResponseEntity<Publication>(updated, new HttpHeaders(), HttpStatus.OK);
+    }
+
     @DeleteMapping("/{id}")
     public HttpStatus deletePublicationById(@PathVariable("id") Long id) throws RecordNotFoundException {
         service.deletePublicationById(id);

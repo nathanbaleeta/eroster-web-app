@@ -4,7 +4,6 @@ import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
 
-
 @Entity
 @Table(name="TBL_PUBLICATION")
 public class Publication implements Serializable {
