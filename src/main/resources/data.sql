@@ -39,18 +39,23 @@ CREATE TABLE TBL_DEPENDENT (
 
 
 /* Insert data into reference table */
-INSERT INTO TBL_REFERENCE (FULL_NAME, FULL_ADDRESS, EMAIL, BUSINESS_OCCUPATION ) VALUES
+INSERT INTO TBL_REFERENCE (FULL_NAME, FULL_ADDRESS, EMAIL, BUSINESS_OCCUPATION) VALUES
     ('Moses Wallace', 'Kampala, Uganda', 'moses.wallace@gmail.com', 'Software Engineer');
 
 
 /* Insert data into publication table */
-INSERT INTO TBL_PUBLICATION (TITLE, PUBLISHER, DATE_PUBLISHED, CITY_PUBLISHED, COUNTRY ) VALUES
+INSERT INTO TBL_PUBLICATION (TITLE, PUBLISHER, DATE_PUBLISHED, CITY_PUBLISHED, COUNTRY) VALUES
     ('Algorithms in the Oil and Gas industry', 'Oxford Press Ltd', '2019-09-12', 'Kampala', 'Uganda');
 
 
 /* Insert data into relative table */
-INSERT INTO TBL_RELATIVE (NAME, RELATIONSHIP, INTERNATIONAL_ORGANIZATION ) VALUES
+INSERT INTO TBL_RELATIVE (NAME, RELATIONSHIP, INTERNATIONAL_ORGANIZATION) VALUES
     ('Daniel Alves', 'Brother', 'UNEPI');
+
+
+/* Insert data into dependent table */
+INSERT INTO TBL_DEPENDENT (NAME, DATE_OF_BIRTH, RELATIONSHIP) VALUES
+    ('Maryanne Smith', '2018-07-10', 'Daughter');
 
 
 
