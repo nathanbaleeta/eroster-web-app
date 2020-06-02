@@ -7,7 +7,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.unicef.eroster.exception.RecordNotFoundException;
 import org.unicef.eroster.model.Publication;
-import org.unicef.eroster.model.Reference;
 import org.unicef.eroster.service.PublicationService;
 
 import java.util.List;
